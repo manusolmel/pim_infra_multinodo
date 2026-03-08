@@ -48,4 +48,8 @@ To authenticate, visit:
 Completamos añadir la máquina a través del enlace obtenido:
 ![tailscale-setup](.sources/images/tailscale-setup.jpg "Instalación Tailscale")
 
-
+### TailNet IPs:
+- nodo1: 100.126.156.35
+- nodo2: 100.78.239.126
+- nodo3: 100.115.184.93
+- nodo4: 100.87.128.22
