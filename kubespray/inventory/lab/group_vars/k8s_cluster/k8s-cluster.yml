@@ -1,0 +1,26 @@
+## Plugin de red
+kube_network_plugin: calico
+
+## Rango de IPs para servicios internos de Kubernetes
+kube_service_addresses: 10.233.0.0/18
+
+## Rango de IPs para pods
+kube_pods_subnet: 10.233.64.0/18
+
+## Prefijo de red por nodo (cada nodo obtiene un /24 para sus pods)
+kube_network_node_prefix: 24
+
+## Runtime de contenedores
+container_manager: containerd
+
+## Modo del proxy de Kubernetes
+kube_proxy_mode: ipvs
+
+## DNS interno del clúster
+cluster_name: cluster.local
+dns_mode: coredns
+enable_nodelocaldns: true
+nodelocaldns_ip: 169.254.25.10
+
+## Resolución DNS
+resolvconf_mode: host_resolvconf

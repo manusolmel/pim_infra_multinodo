@@ -1,0 +1,6 @@
+## Descargar binarios e imágenes una sola vez en el nodo de gestión
+## y distribuirlos al resto por SSH.
+## Evita que 7 nodos descarguen en paralelo desde la misma IP,
+## lo que causa bloqueos por rate-limiting en los CDN.
+download_run_once: true
+download_localhost: true

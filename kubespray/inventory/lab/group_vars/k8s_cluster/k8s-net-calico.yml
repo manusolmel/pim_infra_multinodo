@@ -1,0 +1,17 @@
+## Calico sobre Tailscale: usar VXLAN en vez de IPIP
+## Tailscale ya encapsula en WireGuard. IPIP dentro de WireGuard
+## causa doble encapsulación y problemas de MTU.
+
+# Desactivar BGP (no necesario con VXLAN)
+calico_network_backend: vxlan
+
+# Desactivar IPIP
+calico_ipip_mode: 'Never'
+
+# Activar VXLAN entre todos los nodos
+calico_vxlan_mode: 'Always'
+
+# MTU del veth de los pods.
+# Tailscale tiene MTU efectivo ~1280.
+# VXLAN resta 50 bytes → 1280 - 50 = 1230
+calico_veth_mtu: 1230

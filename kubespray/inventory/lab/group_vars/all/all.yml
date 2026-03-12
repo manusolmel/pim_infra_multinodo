@@ -1,0 +1,18 @@
+## Descargar kubectl y kubeconfig en la máquina de gestión
+kubectl_localhost: true
+kubeconfig_localhost: true
+
+## No sobrescribir hostnames del sistema
+override_system_hostname: false
+
+## Permitir Debian Trixie (no está en la lista oficial de Kubespray)
+allow_unsupported_distribution_setup: true
+
+## Activar sincronización horaria (crítico para etcd y certificados TLS)
+ntp_enabled: true
+ntp_manage_config: true
+ntp_servers:
+  - "0.es.pool.ntp.org iburst"
+  - "1.es.pool.ntp.org iburst"
+  - "2.es.pool.ntp.org iburst"
+  - "3.es.pool.ntp.org iburst"
