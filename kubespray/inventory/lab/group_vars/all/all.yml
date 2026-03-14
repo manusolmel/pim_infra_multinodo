@@ -16,3 +16,6 @@ ntp_servers:
   - "1.es.pool.ntp.org iburst"
   - "2.es.pool.ntp.org iburst"
   - "3.es.pool.ntp.org iburst"
+
+## Debian 13 Trixie no tiene el paquete ntp, usar chrony
+ntp_package: chrony
