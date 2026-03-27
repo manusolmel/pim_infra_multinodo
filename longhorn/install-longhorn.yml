@@ -1,0 +1,40 @@
+---
+# 1: Instalación de prerequisitos en los nodos
+- name: Prepare Kubernetes workers nodes for Longhorn
+  hosts: k8s_cluster
+  become: true
+  tasks:
+    - name: Update APT cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install Longhorn prerequisites
+      ansible.builtin.apt:
+        name:
+          - open-iscsi
+          - nfs-common
+          - util-linux
+          - curl
+        state: present
+
+    - name: Start (Enable) iscsid service
+      ansible.builtin.systemd:
+        name: iscsid
+        enabled: true
+        state: started
+
+# 2: Deploy
+- name: Deploy Longhorn to Kubernetes
+  hosts: localhost
+  connection: local
+  become: false
+  tasks:
+    - name: Apply Longhorn manifest (v1.7.0)
+      ansible.builtin.command: kubectl apply -f https://raw.githubusercontent.com/longhorn/longhorn/v1.7.0/deploy/longhorn.yaml
+      register: kubectl_apply
+      changed_when: "'created' in kubectl_apply.stdout or 'configured' in kubectl_apply.stdout"
+
+    - name: Output deployment status
+      ansible.builtin.debug:
+        var: kubectl_apply.stdout_lines
