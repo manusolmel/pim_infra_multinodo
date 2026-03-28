@@ -1,11 +1,5 @@
 # 02 — Preparación del nodo de administración
 
-**Proyecto**: Infraestructura de Hosting Multinodo  
-**Nodo**: debian-admin (100.109.133.56)  
-**Fecha**: Marzo 2026
-
----
-
 ## 1. Función del nodo admin
 
 El nodo `debian-admin` es la máquina desde la que se controla todo el clúster. No forma parte de Kubernetes; su único propósito es ejecutar Ansible y Kubespray contra los 7 nodos del clúster.

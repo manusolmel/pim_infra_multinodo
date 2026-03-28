@@ -1,10 +1,5 @@
 # 05 — Ficha técnica de nodos y mapa de red
 
-**Proyecto**: Infraestructura de Hosting Multinodo  
-**Fecha de validación**: 14 de marzo de 2026
-
----
-
 ## 1. Inventario de nodos
 
 | # | Hostname | IP Tailscale | Rol K8s | etcd | RAM | CPU | SO |

@@ -1,10 +1,5 @@
 # 06 — Guía paso a paso de despliegue
 
-**Proyecto**: Infraestructura de Hosting Multinodo  
-**Objetivo**: reproducir el clúster Kubernetes completo desde cero.
-
----
-
 Esta guía recoge la secuencia exacta para llegar desde VMs vacías hasta un clúster Kubernetes funcional. Cada paso indica el nodo desde el que se ejecuta.
 
 ---

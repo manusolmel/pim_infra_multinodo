@@ -1,9 +1,5 @@
 # 04 — Referencia de comandos
 
-**Proyecto**: Infraestructura de Hosting Multinodo
-
----
-
 Todos los comandos de Ansible se ejecutan desde `~/kubespray` con el entorno virtual activo:
 
 ```bash
