@@ -126,7 +126,7 @@ ansible -i ~/pim_infra_multinodo/kubespray/inventory/lab/inventory.ini all \
   -m copy -a "content='usuario1 ALL=(ALL) NOPASSWD:ALL' dest=/etc/sudoers.d/usuario1 mode=0440" -b
 ```
 
-> **Nota de seguridad**: `NOPASSWD` es exclusivo del entorno de laboratorio, aconsejable para evitar errores en la instalación según la documentación de Kubespray. 
+> **Nota de seguridad**: `NOPASSWD` es exclusivo del entorno de despliegue inicial, aconsejable para evitar errores en la instalación según la documentación de Kubespray. 
 
 ### 6.3 Hostname en `/etc/hosts`
 

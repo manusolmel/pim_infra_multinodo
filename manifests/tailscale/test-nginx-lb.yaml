@@ -25,6 +25,9 @@ kind: Service
 metadata:
   name: test-nginx
   namespace: default
+  annotations:
+    tailscale.com/proxy-group: ingress-proxies
+    tailscale.com/hostname: test-nginx-ha
 spec:
   selector:
     app: test-nginx
