@@ -125,7 +125,7 @@ El proceso genera dos credenciales necesarias para el despliegue:
 
 ### 5.1 Descarga del manifiesto oficial
 
-Para mantener coherencia con el resto del proyecto, el operador se despliega mediante **manifiesto estático + kubectl**, sin introducir Helm.
+Para mantener coherencia con el resto del proyecto, el operador se despliega mediante **manifiesto estático + kubectl**.
 
 ```bash
 mkdir -p ~/pim_infra_multinodo/manifests/tailscale
