@@ -373,7 +373,7 @@ No se considera adecuado exponer por esta vía, salvo necesidad explícita:
 
 ## 11. Resultado final
 
-Con este despliegue, el proyecto incorpora una capa de balanceo de carga de entrada privada basada en:
+Con este despliegue, el clúster incorpora una capa de balanceo de carga de entrada privada basada en:
 
 - **Tailscale Kubernetes Operator**;
 - `Service` `LoadBalancer` con `loadBalancerClass: tailscale`;

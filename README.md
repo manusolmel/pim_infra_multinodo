@@ -68,6 +68,7 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 | [05 — Ficha técnica y red](docs/05_ficha_tecnica_red.md)              | Inventario de nodos, versiones de software, configuración de red y mapa              |
 | [06 — Guía paso a paso](docs/06_guia_paso_a_paso.md)                  | Checklist completa para reproducir el despliegue desde cero                          |
 | [07 — Balanceador de carga privado](docs/07_balanceador_tailscale.md) | Instalación y despliegue del sistema de balanceo de carga privado con Tailscale      |
+| [08 — Almacenamiento persistente con Longhorn](docs/08_longhorn.md)   | Instalación, configuración y verificación del sistema de almacenamiento persistente   |
 
 ## Estructura del repositorio
 
@@ -81,7 +82,8 @@ pim_infra_multinodo/
 │   ├── 04_comandos.md
 │   ├── 05_ficha_tecnica_red.md
 │   ├── 06_guia_paso_a_paso.md
-│   └── 07_balanceador_tailscale.md
+│   ├── 07_balanceador_tailscale.md
+│   └── 08_longhorn.md
 ├── kubespray/
 │   └── inventory/
 │       └── lab/
@@ -94,6 +96,7 @@ pim_infra_multinodo/
 │                   ├── k8s-cluster.yml
 │                   └── k8s-net-calico.yml
 ├── manifests/
+│   ├── longhorn/
 │   ├── tailscale/
 │   └── wordpress_mariadb/
 ├── logs/                              ← Logs de despliegue (excluidos de git)
@@ -110,10 +113,12 @@ Kubespray se clona como repositorio independiente (`~/kubespray`) y no se modifi
 - [x] Despliegue automatizado con Kubespray
 - [x] Verificación funcional inicial del clúster (nginx ×4 réplicas)
 - [x] Almacenamiento persistente con Longhorn desplegado
+- [x] `StorageClass` `longhorn` configurada como clase por defecto
+- [x] Publicación privada de la UI de Longhorn mediante `Service` `LoadBalancer` sobre Tailscale
 - [x] Sistema de balanceo de entrada privado implantado con Tailscale Operator
 - [x] Capa de entrada redundante mediante ProxyGroup
 - [x] Publicación privada de interfaces internas mediante `Service` `LoadBalancer`
-- [x] Documentación técnica del despliegue base y del balanceador
+- [x] Documentación técnica del despliegue base, del balanceador y del almacenamiento persistente
 
 ## Próximos pasos
 
@@ -136,6 +141,10 @@ ansible -i ~/pim_infra_multinodo/kubespray/inventory/lab/inventory.ini all -m pi
 # Ver estado del clúster
 kubectl get nodes
 kubectl get pods -A
+
+# Ver estado del almacenamiento
+kubectl get pods -n longhorn-system
+kubectl get pvc,pv -A
 
 # Ver estado del operador de balanceo
 kubectl get pods -n tailscale

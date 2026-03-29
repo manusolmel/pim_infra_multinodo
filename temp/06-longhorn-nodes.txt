@@ -1,5 +1,0 @@
-NAME           READY   ALLOWSCHEDULING   SCHEDULABLE   AGE
-debian-nodo1   True    true              True          3d8h
-debian-nodo2   True    true              True          3d8h
-debian-nodo3   True    true              True          3d8h
-debian-nodo4   False   true              True          3d8h
