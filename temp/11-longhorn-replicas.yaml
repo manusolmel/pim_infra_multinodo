@@ -1,0 +1,227 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-03-28T19:27:12Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      longhorn.io/backing-image: ""
+      longhorndiskuuid: 2bef56b1-759b-44bd-bafe-d000dc6e00c7
+      longhornnode: debian-nodo2
+      longhornvolume: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-177537d1
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+      uid: feff2a20-b6a4-48bd-b729-f79e8806db30
+    resourceVersion: "473369"
+    uid: e6ccb9dc-6ff1-413a-969d-084d8c75127e
+  spec:
+    active: true
+    backendStoreDriver: ""
+    backingImage: ""
+    dataDirectoryName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-30545301
+    dataEngine: v1
+    desireState: stopped
+    diskID: 2bef56b1-759b-44bd-bafe-d000dc6e00c7
+    diskPath: /var/lib/longhorn/
+    engineImage: ""
+    engineName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-e-0
+    evictionRequested: false
+    failedAt: ""
+    hardNodeAffinity: ""
+    healthyAt: ""
+    image: longhornio/longhorn-engine:v1.7.0
+    lastFailedAt: ""
+    lastHealthyAt: ""
+    logRequested: false
+    nodeID: debian-nodo2
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:12Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:12Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: FilesystemReadOnly
+    currentImage: ""
+    currentState: stopped
+    evictionRequested: false
+    instanceManagerName: ""
+    ip: ""
+    logFetched: false
+    ownerID: debian-nodo2
+    port: 0
+    salvageExecuted: false
+    started: false
+    storageIP: ""
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-03-28T19:27:12Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      longhorn.io/backing-image: ""
+      longhorndiskuuid: 3c01b69a-b128-47c4-a26c-1dfc5d0369a7
+      longhornnode: debian-nodo1
+      longhornvolume: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-725014ee
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+      uid: feff2a20-b6a4-48bd-b729-f79e8806db30
+    resourceVersion: "441026"
+    uid: 9810872d-507c-45fd-86fb-47376bb2bee4
+  spec:
+    active: true
+    backendStoreDriver: ""
+    backingImage: ""
+    dataDirectoryName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-98587b1f
+    dataEngine: v1
+    desireState: stopped
+    diskID: 3c01b69a-b128-47c4-a26c-1dfc5d0369a7
+    diskPath: /var/lib/longhorn/
+    engineImage: ""
+    engineName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-e-0
+    evictionRequested: false
+    failedAt: ""
+    hardNodeAffinity: ""
+    healthyAt: ""
+    image: longhornio/longhorn-engine:v1.7.0
+    lastFailedAt: ""
+    lastHealthyAt: ""
+    logRequested: false
+    nodeID: debian-nodo1
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:12Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:12Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: FilesystemReadOnly
+    currentImage: ""
+    currentState: stopped
+    evictionRequested: false
+    instanceManagerName: ""
+    ip: ""
+    logFetched: false
+    ownerID: debian-nodo1
+    port: 0
+    salvageExecuted: false
+    started: false
+    storageIP: ""
+- apiVersion: longhorn.io/v1beta2
+  kind: Replica
+  metadata:
+    creationTimestamp: "2026-03-28T19:27:12Z"
+    finalizers:
+    - longhorn.io
+    generation: 2
+    labels:
+      longhorn.io/backing-image: ""
+      longhorndiskuuid: 48eca2a8-5497-4c19-9904-8c4d8f1c8ed0
+      longhornnode: debian-nodo3
+      longhornvolume: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-edc494d3
+    namespace: longhorn-system
+    ownerReferences:
+    - apiVersion: longhorn.io/v1beta2
+      kind: Volume
+      name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+      uid: feff2a20-b6a4-48bd-b729-f79e8806db30
+    resourceVersion: "482429"
+    uid: 98838d6f-c326-4bc1-ab6d-0f388d5e5098
+  spec:
+    active: true
+    backendStoreDriver: ""
+    backingImage: ""
+    dataDirectoryName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-16d4be60
+    dataEngine: v1
+    desireState: stopped
+    diskID: 48eca2a8-5497-4c19-9904-8c4d8f1c8ed0
+    diskPath: /var/lib/longhorn/
+    engineImage: ""
+    engineName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-e-0
+    evictionRequested: false
+    failedAt: ""
+    hardNodeAffinity: ""
+    healthyAt: ""
+    image: longhornio/longhorn-engine:v1.7.0
+    lastFailedAt: ""
+    lastHealthyAt: ""
+    logRequested: false
+    nodeID: debian-nodo3
+    rebuildRetryCount: 0
+    revisionCounterDisabled: true
+    salvageRequested: false
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    unmapMarkDiskChainRemovedEnabled: false
+    volumeName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    volumeSize: "5368709120"
+  status:
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: InstanceCreation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: FilesystemReadOnly
+    currentImage: ""
+    currentState: stopped
+    evictionRequested: false
+    instanceManagerName: ""
+    ip: ""
+    logFetched: false
+    ownerID: debian-nodo3
+    port: 0
+    salvageExecuted: false
+    started: false
+    storageIP: ""
+kind: List
+metadata:
+  resourceVersion: ""

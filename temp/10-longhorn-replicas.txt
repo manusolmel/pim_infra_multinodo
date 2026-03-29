@@ -1,0 +1,4 @@
+NAME                                                  DATA ENGINE   STATE     NODE           DISK                                   INSTANCEMANAGER   IMAGE   AGE
+pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-177537d1   v1            stopped   debian-nodo2   2bef56b1-759b-44bd-bafe-d000dc6e00c7                             12h
+pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-725014ee   v1            stopped   debian-nodo1   3c01b69a-b128-47c4-a26c-1dfc5d0369a7                             12h
+pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-edc494d3   v1            stopped   debian-nodo3   48eca2a8-5497-4c19-9904-8c4d8f1c8ed0                             12h

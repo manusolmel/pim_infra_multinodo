@@ -1,0 +1,114 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Volume
+  metadata:
+    creationTimestamp: "2026-03-28T19:27:11Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    labels:
+      longhornvolume: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+      recurring-job-group.longhorn.io/default: enabled
+      setting.longhorn.io/remove-snapshots-during-filesystem-trim: ignored
+    name: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+    namespace: longhorn-system
+    resourceVersion: "441041"
+    uid: feff2a20-b6a4-48bd-b729-f79e8806db30
+  spec:
+    Standby: false
+    accessMode: rwo
+    backendStoreDriver: ""
+    backingImage: ""
+    backupCompressionMethod: lz4
+    dataEngine: v1
+    dataLocality: disabled
+    dataSource: ""
+    disableFrontend: false
+    diskSelector: []
+    encrypted: false
+    engineImage: ""
+    freezeFilesystemForSnapshot: ignored
+    fromBackup: ""
+    frontend: blockdev
+    image: longhornio/longhorn-engine:v1.7.0
+    lastAttachedBy: ""
+    migratable: false
+    migrationNodeID: ""
+    nodeID: ""
+    nodeSelector: []
+    numberOfReplicas: 3
+    replicaAutoBalance: ignored
+    replicaDiskSoftAntiAffinity: ignored
+    replicaSoftAntiAffinity: ignored
+    replicaZoneSoftAntiAffinity: ignored
+    restoreVolumeRecurringJob: ignored
+    revisionCounterDisabled: true
+    size: "5368709120"
+    snapshotDataIntegrity: ignored
+    snapshotMaxCount: 250
+    snapshotMaxSize: "0"
+    staleReplicaTimeout: 30
+    unmapMarkSnapChainRemoved: ignored
+  status:
+    actualSize: 0
+    cloneStatus:
+      attemptCount: 0
+      nextAllowedAttemptAt: ""
+      snapshot: ""
+      sourceVolume: ""
+      state: ""
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: WaitForBackingImage
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: TooManySnapshots
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Scheduled
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:27:13Z"
+      message: ""
+      reason: ""
+      status: "False"
+      type: Restore
+    currentImage: longhornio/longhorn-engine:v1.7.0
+    currentMigrationNodeID: ""
+    currentNodeID: ""
+    expansionRequired: false
+    frontendDisabled: false
+    isStandby: false
+    kubernetesStatus:
+      lastPVCRefAt: ""
+      lastPodRefAt: ""
+      namespace: wordpress
+      pvName: pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36
+      pvStatus: Bound
+      pvcName: wordpress-pvc
+      workloadsStatus: null
+    lastBackup: ""
+    lastBackupAt: ""
+    lastDegradedAt: ""
+    ownerID: debian-nodo1
+    pendingNodeID: ""
+    remountRequestedAt: ""
+    restoreInitiated: false
+    restoreRequired: false
+    robustness: unknown
+    shareEndpoint: ""
+    shareState: ""
+    state: detached
+kind: List
+metadata:
+  resourceVersion: ""

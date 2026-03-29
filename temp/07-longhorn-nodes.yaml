@@ -1,0 +1,392 @@
+apiVersion: v1
+items:
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-03-25T23:35:34Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    name: debian-nodo1
+    namespace: longhorn-system
+    resourceVersion: "472794"
+    uid: 9c75a928-7c9e-4081-8b09-af78ee4e50eb
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-be42d3579b21dccc:
+        allowScheduling: true
+        diskDriver: ""
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/longhorn/
+        storageReserved: 5945371852
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: debian-nodo1
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-27T08:33:43Z"
+      message: Node debian-nodo1 is ready
+      reason: ""
+      status: "True"
+      type: Ready
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T14:03:31Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:04Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: MountPropagation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:04Z"
+      message: 'Missing packages: [cryptsetup]'
+      reason: PackagesNotInstalled
+      status: "False"
+      type: RequiredPackages
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:04Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:04Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: NFSClientInstalled
+    diskStatus:
+      default-disk-be42d3579b21dccc:
+        conditions:
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:04Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo1 is ready
+          reason: ""
+          status: "True"
+          type: Ready
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:04Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo1 is schedulable
+          reason: ""
+          status: "True"
+          type: Schedulable
+        diskDriver: ""
+        diskName: default-disk-be42d3579b21dccc
+        diskPath: /var/lib/longhorn/
+        diskType: filesystem
+        diskUUID: 3c01b69a-b128-47c4-a26c-1dfc5d0369a7
+        filesystemType: ext2/ext3
+        instanceManagerName: instance-manager-17d9b58ad515ab09980a80761207f75e
+        scheduledReplica:
+          pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-725014ee: 5368709120
+        storageAvailable: 9646899200
+        storageMaximum: 19817906176
+        storageScheduled: 5368709120
+    region: ""
+    snapshotCheckStatus: {}
+    zone: ""
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-03-25T23:35:56Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    name: debian-nodo2
+    namespace: longhorn-system
+    resourceVersion: "473367"
+    uid: f189a073-300c-4111-ae95-359f128c1f89
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-be42d3579b21dccc:
+        allowScheduling: true
+        diskDriver: ""
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/longhorn/
+        storageReserved: 5945371852
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: debian-nodo2
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-29T07:04:25Z"
+      message: Node debian-nodo2 is ready
+      reason: ""
+      status: "True"
+      type: Ready
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:02Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:32Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: MountPropagation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:32Z"
+      message: 'Missing packages: [cryptsetup]'
+      reason: PackagesNotInstalled
+      status: "False"
+      type: RequiredPackages
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:32Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:32Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: NFSClientInstalled
+    diskStatus:
+      default-disk-be42d3579b21dccc:
+        conditions:
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:32Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo2 is ready
+          reason: ""
+          status: "True"
+          type: Ready
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:32Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo2 is schedulable
+          reason: ""
+          status: "True"
+          type: Schedulable
+        diskDriver: ""
+        diskName: default-disk-be42d3579b21dccc
+        diskPath: /var/lib/longhorn/
+        diskType: filesystem
+        diskUUID: 2bef56b1-759b-44bd-bafe-d000dc6e00c7
+        filesystemType: ext2/ext3
+        instanceManagerName: instance-manager-d7d4f25201a4066c26f2a0f8e8887384
+        scheduledReplica:
+          pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-177537d1: 5368709120
+        storageAvailable: 12268339200
+        storageMaximum: 19817906176
+        storageScheduled: 5368709120
+    region: ""
+    snapshotCheckStatus: {}
+    zone: ""
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-03-25T23:36:07Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    name: debian-nodo3
+    namespace: longhorn-system
+    resourceVersion: "482426"
+    uid: 3e0b3784-1db3-4248-a229-71addf07ad13
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-be42d3579b21dccc:
+        allowScheduling: true
+        diskDriver: ""
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/longhorn/
+        storageReserved: 5945371852
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: debian-nodo3
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-29T07:41:36Z"
+      message: Node debian-nodo3 is ready
+      reason: ""
+      status: "True"
+      type: Ready
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:07Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:37Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: MountPropagation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:37Z"
+      message: 'Missing packages: [cryptsetup]'
+      reason: PackagesNotInstalled
+      status: "False"
+      type: RequiredPackages
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:37Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:37Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: NFSClientInstalled
+    diskStatus:
+      default-disk-be42d3579b21dccc:
+        conditions:
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:37Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo3 is ready
+          reason: ""
+          status: "True"
+          type: Ready
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:37Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo3 is schedulable
+          reason: ""
+          status: "True"
+          type: Schedulable
+        diskDriver: ""
+        diskName: default-disk-be42d3579b21dccc
+        diskPath: /var/lib/longhorn/
+        diskType: filesystem
+        diskUUID: 48eca2a8-5497-4c19-9904-8c4d8f1c8ed0
+        filesystemType: ext2/ext3
+        instanceManagerName: instance-manager-33a87cabb68193d83e36161e0b661edd
+        scheduledReplica:
+          pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36-r-edc494d3: 5368709120
+        storageAvailable: 12268339200
+        storageMaximum: 19817906176
+        storageScheduled: 5368709120
+    region: ""
+    snapshotCheckStatus: {}
+    zone: ""
+- apiVersion: longhorn.io/v1beta2
+  kind: Node
+  metadata:
+    creationTimestamp: "2026-03-25T23:35:34Z"
+    finalizers:
+    - longhorn.io
+    generation: 1
+    name: debian-nodo4
+    namespace: longhorn-system
+    resourceVersion: "483203"
+    uid: 89e7091a-ee71-4e85-a964-82c07cb8fee4
+  spec:
+    allowScheduling: true
+    disks:
+      default-disk-be42d3579b21dccc:
+        allowScheduling: true
+        diskDriver: ""
+        diskType: filesystem
+        evictionRequested: false
+        path: /var/lib/longhorn/
+        storageReserved: 5945371852
+        tags: []
+    evictionRequested: false
+    instanceManagerCPURequest: 0
+    name: debian-nodo4
+    tags: []
+  status:
+    autoEvicting: false
+    conditions:
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-29T07:45:07Z"
+      message: 'Kubernetes node debian-nodo4 not ready: NodeStatusUnknown'
+      reason: KubernetesNodeNotReady
+      status: "False"
+      type: Ready
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-28T19:05:19Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Schedulable
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:07Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: MountPropagation
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:07Z"
+      message: 'Missing packages: [cryptsetup]'
+      reason: PackagesNotInstalled
+      status: "False"
+      type: RequiredPackages
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:07Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: Multipathd
+    - lastProbeTime: ""
+      lastTransitionTime: "2026-03-25T23:36:07Z"
+      message: ""
+      reason: ""
+      status: "True"
+      type: NFSClientInstalled
+    diskStatus:
+      default-disk-be42d3579b21dccc:
+        conditions:
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:07Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo4 is ready
+          reason: ""
+          status: "True"
+          type: Ready
+        - lastProbeTime: ""
+          lastTransitionTime: "2026-03-25T23:36:07Z"
+          message: Disk default-disk-be42d3579b21dccc(/var/lib/longhorn/) on node
+            debian-nodo4 is schedulable
+          reason: ""
+          status: "True"
+          type: Schedulable
+        diskDriver: ""
+        diskName: default-disk-be42d3579b21dccc
+        diskPath: /var/lib/longhorn/
+        diskType: filesystem
+        diskUUID: cb824037-45e1-4613-8dcf-3d3634b27cd2
+        filesystemType: ext2/ext3
+        instanceManagerName: instance-manager-69e8ee94bfac73020cccd8c330d4934d
+        scheduledReplica: {}
+        storageAvailable: 9332326400
+        storageMaximum: 19817906176
+        storageScheduled: 0
+    region: ""
+    snapshotCheckStatus: {}
+    zone: ""
+kind: List
+metadata:
+  resourceVersion: ""

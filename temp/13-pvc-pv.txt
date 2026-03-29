@@ -1,0 +1,5 @@
+NAMESPACE   NAME                                  STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE
+wordpress   persistentvolumeclaim/wordpress-pvc   Bound    pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36   5Gi        RWO            longhorn       <unset>                 12h
+
+NAMESPACE   NAME                                                        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                     STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+            persistentvolume/pvc-6695a520-6d8f-473b-95ee-ad5dd935ad36   5Gi        RWO            Delete           Bound    wordpress/wordpress-pvc   longhorn       <unset>                          12h
