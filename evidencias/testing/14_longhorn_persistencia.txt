@@ -1,0 +1,50 @@
+--- cleanup previous resources ---
+pod "longhorn-persistence-reader" deleted from testing namespace
+persistentvolumeclaim "longhorn-persistence-test" deleted from testing namespace
+--- create pvc ---
+persistentvolumeclaim/longhorn-persistence-test created
+--- create writer pod ---
+pod/longhorn-persistence-writer created
+--- wait writer pod ready ---
+pod/longhorn-persistence-writer condition met
+--- writer node: debian-nodo3 ---
+--- write data through kubectl exec ---
+total 28
+drwxr-xr-x    3 root     root          4096 Apr 25 13:31 .
+drwxr-xr-x    1 root     root          4096 Apr 25 13:31 ..
+drwx------    2 root     root         16384 Apr 25 13:30 lost+found
+-rw-r--r--    1 root     root            52 Apr 25 13:31 test.txt
+longhorn-persistence-test 2026-04-25T15:31:15+02:00
+--- pvc after write ---
+NAME                        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+longhorn-persistence-test   Bound    pvc-5a805ac3-fc94-492d-87c1-bc6986092e2b   1Gi        RWO            longhorn       <unset>                 76s   Filesystem
+--- delete writer pod ---
+pod "longhorn-persistence-writer" deleted from testing namespace
+--- create reader pod on same node ---
+pod/longhorn-persistence-reader created
+--- wait reader pod ready ---
+pod/longhorn-persistence-reader condition met
+--- read persisted data through kubectl exec ---
+total 28
+drwxr-xr-x    3 root     root          4096 Apr 25 13:32 .
+drwxr-xr-x    1 root     root          4096 Apr 25 13:33 ..
+drwx------    2 root     root         16384 Apr 25 13:30 lost+found
+-rw-r--r--    1 root     root            52 Apr 25 13:31 test.txt
+longhorn-persistence-test 2026-04-25T15:31:15+02:00
+--- compare expected value ---
+EXPECTED=longhorn-persistence-test 2026-04-25T15:31:15+02:00
+READ=longhorn-persistence-test 2026-04-25T15:31:15+02:00
+RESULT: persisted data matches initial data
+--- pvc final state ---
+NAME                        STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   VOLUMEATTRIBUTESCLASS   AGE   VOLUMEMODE
+longhorn-persistence-test   Bound    pvc-5a805ac3-fc94-492d-87c1-bc6986092e2b   1Gi        RWO            longhorn       <unset>                 3m    Filesystem
+--- longhorn volumes ---
+NAME                                       DATA ENGINE   STATE      ROBUSTNESS   SCHEDULED   SIZE         NODE           AGE
+pvc-11e70e65-5065-4dac-a41d-0045c323d94d   v1            attached   healthy                  2147483648   debian-nodo3   3h32m
+pvc-5a805ac3-fc94-492d-87c1-bc6986092e2b   v1            attached   degraded                 1073741824   debian-nodo3   2m59s
+pvc-65698992-522e-458e-ae6a-bccaa202b985   v1            attached   degraded                 2147483648   debian-nodo2   3h32m
+--- final pods ---
+NAME                          READY   STATUS    RESTARTS   AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+longhorn-persistence-reader   1/1     Running   0          52s    10.233.117.138   debian-nodo3   <none>           <none>
+--- update script note ---
+This evidence was generated with exec-based write/read commands to avoid container startup race conditions.
