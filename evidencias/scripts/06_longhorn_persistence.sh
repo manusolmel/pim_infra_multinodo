@@ -1,3 +1,6 @@
+cd ~/pim_infra_multinodo || exit 1
+
+cat > evidencias/scripts/06_longhorn_persistence.sh <<'EOF'
 #!/usr/bin/env bash
 set -euo pipefail
 
@@ -7,12 +10,21 @@ ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 OUT_DIR="${ROOT_DIR}/evidencias/testing"
 OUT_FILE="${OUT_DIR}/14_longhorn_persistencia.txt"
 MANIFEST_DIR="${ROOT_DIR}/manifests/testing"
-MANIFEST_FILE="${MANIFEST_DIR}/longhorn-persistence-test.yaml"
+PVC_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-test.yaml"
+READER_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-reader.yaml"
 
 mkdir -p "${OUT_DIR}" "${MANIFEST_DIR}"
 : > "${OUT_FILE}"
 
-cat > "${MANIFEST_FILE}" <<'YAML'
+echo "--- cleanup previous test resources ---" | tee -a "${OUT_FILE}"
+kubectl -n testing delete pod longhorn-persistence-writer --ignore-not-found 2>&1 | tee -a "${OUT_FILE}"
+kubectl -n testing delete pod longhorn-persistence-reader --ignore-not-found 2>&1 | tee -a "${OUT_FILE}"
+kubectl -n testing delete pvc longhorn-persistence-test --ignore-not-found 2>&1 | tee -a "${OUT_FILE}"
+
+echo "--- wait cleanup ---" | tee -a "${OUT_FILE}"
+sleep 10
+
+cat > "${PVC_MANIFEST}" <<'YAML'
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -35,9 +47,9 @@ spec:
   restartPolicy: Never
   containers:
     - name: writer
-      image: busybox:1.36
+      image: nginx:stable-alpine
       command:
-        - sh
+        - /bin/sh
         - -c
         - |
           echo "longhorn-persistence-test $(date -Iseconds)" > /data/test.txt
@@ -52,24 +64,35 @@ spec:
         claimName: longhorn-persistence-test
 YAML
 
-echo "--- apply persistence test manifest ---" | tee -a "${OUT_FILE}"
-kubectl apply -f "${MANIFEST_FILE}" 2>&1 | tee -a "${OUT_FILE}"
+echo "--- apply writer manifest ---" | tee -a "${OUT_FILE}"
+kubectl apply -f "${PVC_MANIFEST}" 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- wait for writer pod ---" | tee -a "${OUT_FILE}"
+echo "--- wait writer pod ready ---" | tee -a "${OUT_FILE}"
 kubectl -n testing wait pod/longhorn-persistence-writer \
   --for=condition=Ready \
   --timeout=180s 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- initial data ---" | tee -a "${OUT_FILE}"
+echo "--- wait for data file ---" | tee -a "${OUT_FILE}"
+for i in $(seq 1 30); do
+  if kubectl -n testing exec longhorn-persistence-writer -- test -f /data/test.txt 2>/dev/null; then
+    break
+  fi
+  sleep 1
+done
+
+echo "--- initial data written in PVC ---" | tee -a "${OUT_FILE}"
 kubectl -n testing exec longhorn-persistence-writer -- cat /data/test.txt 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- pvc state ---" | tee -a "${OUT_FILE}"
+echo "--- pvc state after write ---" | tee -a "${OUT_FILE}"
 kubectl -n testing get pvc longhorn-persistence-test -o wide 2>&1 | tee -a "${OUT_FILE}"
+
+echo "--- writer pod state ---" | tee -a "${OUT_FILE}"
+kubectl -n testing get pod longhorn-persistence-writer -o wide 2>&1 | tee -a "${OUT_FILE}"
 
 echo "--- delete writer pod ---" | tee -a "${OUT_FILE}"
 kubectl -n testing delete pod longhorn-persistence-writer 2>&1 | tee -a "${OUT_FILE}"
 
-cat > "${MANIFEST_DIR}/longhorn-persistence-reader.yaml" <<'YAML'
+cat > "${READER_MANIFEST}" <<'YAML'
 apiVersion: v1
 kind: Pod
 metadata:
@@ -79,9 +102,9 @@ spec:
   restartPolicy: Never
   containers:
     - name: reader
-      image: busybox:1.36
+      image: nginx:stable-alpine
       command:
-        - sh
+        - /bin/sh
         - -c
         - |
           cat /data/test.txt
@@ -95,10 +118,10 @@ spec:
         claimName: longhorn-persistence-test
 YAML
 
-echo "--- apply reader pod ---" | tee -a "${OUT_FILE}"
-kubectl apply -f "${MANIFEST_DIR}/longhorn-persistence-reader.yaml" 2>&1 | tee -a "${OUT_FILE}"
+echo "--- apply reader manifest ---" | tee -a "${OUT_FILE}"
+kubectl apply -f "${READER_MANIFEST}" 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- wait for reader pod ---" | tee -a "${OUT_FILE}"
+echo "--- wait reader pod ready ---" | tee -a "${OUT_FILE}"
 kubectl -n testing wait pod/longhorn-persistence-reader \
   --for=condition=Ready \
   --timeout=180s 2>&1 | tee -a "${OUT_FILE}"
@@ -106,8 +129,17 @@ kubectl -n testing wait pod/longhorn-persistence-reader \
 echo "--- persisted data after pod recreation ---" | tee -a "${OUT_FILE}"
 kubectl -n testing exec longhorn-persistence-reader -- cat /data/test.txt 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- Longhorn volume state ---" | tee -a "${OUT_FILE}"
+echo "--- pvc final state ---" | tee -a "${OUT_FILE}"
+kubectl -n testing get pvc longhorn-persistence-test -o wide 2>&1 | tee -a "${OUT_FILE}"
+
+echo "--- longhorn volumes ---" | tee -a "${OUT_FILE}"
 kubectl -n longhorn-system get volumes.longhorn.io 2>&1 | tee -a "${OUT_FILE}"
 
-echo "--- cleanup note ---" | tee -a "${OUT_FILE}"
-echo "To clean up: kubectl -n testing delete pod longhorn-persistence-reader; kubectl -n testing delete pvc longhorn-persistence-test" | tee -a "${OUT_FILE}"
+echo "--- final pods ---" | tee -a "${OUT_FILE}"
+kubectl -n testing get pods -o wide | grep -E 'longhorn-persistence|NAME' 2>&1 | tee -a "${OUT_FILE}"
+
+echo "--- cleanup command ---" | tee -a "${OUT_FILE}"
+echo "kubectl -n testing delete pod longhorn-persistence-reader; kubectl -n testing delete pvc longhorn-persistence-test" | tee -a "${OUT_FILE}"
+EOF
+
+chmod +x evidencias/scripts/06_longhorn_persistence.sh
