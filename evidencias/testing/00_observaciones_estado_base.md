@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Esta evidencia registra el estado inicial del clúster antes de ejecutar las pruebas funcionales de la entrega 5.  
+Esta evidencia registra el estado inicial del clúster antes de ejecutar las pruebas funcionales de validación operativa.
 Sirve como línea base para comparar el comportamiento del sistema durante las pruebas de recuperación, disponibilidad, persistencia y acceso privado.
 
 ## Contexto de captura
@@ -99,7 +99,7 @@ readyz check passed
 livez check passed
 ```
 
-Esto confirma que el clúster es administrable desde el nodo de administración en el momento de iniciar la fase de pruebas.
+Esto confirma que el clúster es administrable desde el nodo de administración en el momento de iniciar la fase de validación.
 
 ## Evidencias asociadas
 

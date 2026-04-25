@@ -68,7 +68,7 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 | [07 — Balanceador de carga privado](docs/07_balanceador_tailscale.md) | Instalación y despliegue del sistema de balanceo de carga privado con Tailscale      |
 | [08 — Almacenamiento persistente con Longhorn](docs/08_longhorn.md)   | Instalación, configuración y verificación del sistema de almacenamiento persistente   |
 | [09 — WordPress + MariaDB con Helm](docs/09_wordpress_mariadb_helm.md) | Despliegue funcional de WordPress + MariaDB con Helm, Longhorn y Tailscale           |
-| [10 — Pruebas de evaluación entrega 5](docs/10_pruebas_entrega5.md)   | Índice de evidencias, scripts y resultados de la fase de pruebas                     |
+| [10 — Validación operativa del clúster](docs/10_validacion_operativa.md) | Índice de evidencias, scripts y resultados de validación operativa                 |
 
 ## Estructura del repositorio
 
@@ -85,7 +85,7 @@ pim_infra_multinodo/
 │   ├── 07_balanceador_tailscale.md
 │   ├── 08_longhorn.md
 │   ├── 09_wordpress_mariadb_helm.md
-│   └── 10_pruebas_entrega5.md
+│   └── 10_validacion_operativa.md
 ├── evidencias/
 │   ├── scripts/
 │   └── testing/
@@ -126,14 +126,14 @@ Kubespray se clona como repositorio independiente (`~/kubespray`) y no se modifi
 - [x] Publicación privada de interfaces internas mediante `Service` `LoadBalancer`
 - [x] WordPress + MariaDB desplegado mediante Helm, Longhorn y Tailscale
 - [x] Documentación técnica del despliegue base, del balanceador, del almacenamiento persistente y del servicio WordPress
-- [x] Fase de pruebas de evaluación documentada con evidencias reproducibles
+- [x] Validación operativa documentada con evidencias reproducibles
 
 ## Próximos pasos
 
 - [ ] Prometheus + Grafana
 - [ ] Network Policies con Calico
 - [ ] Integración de más servicios reales sobre el balanceador privado
-- [ ] Preparación de la defensa final
+- [ ] Cierre operativo del proyecto
 
 ## Inicio rápido
 

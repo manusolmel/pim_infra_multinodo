@@ -1,6 +1,6 @@
-# 10 — Pruebas de evaluación de la entrega 5
+# 10 — Validación operativa del clúster
 
-Esta documentación enlaza las evidencias de la fase de pruebas.
+Esta documentación enlaza las evidencias de validación operativa.
 
 | ID | Prueba | Evidencia documentada | Salida bruta | Script | Resultado |
 | --- | --- | --- | --- | --- | --- |
