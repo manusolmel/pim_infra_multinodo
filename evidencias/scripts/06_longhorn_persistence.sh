@@ -5,7 +5,8 @@ ROOT_DIR="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
 OUT_DIR="${ROOT_DIR}/evidencias/testing"
 OUT_FILE="${OUT_DIR}/14_longhorn_persistencia.txt"
 MANIFEST_DIR="${ROOT_DIR}/manifests/testing"
-WRITER_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-test.yaml"
+PVC_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-pvc.yaml"
+WRITER_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-writer.yaml"
 READER_MANIFEST="${MANIFEST_DIR}/longhorn-persistence-reader.yaml"
 
 mkdir -p "${OUT_DIR}" "${MANIFEST_DIR}"
@@ -29,46 +30,8 @@ kubectl -n testing wait pod/longhorn-persistence-writer --for=delete --timeout=6
 kubectl -n testing wait pod/longhorn-persistence-reader --for=delete --timeout=60s 2>/dev/null || true
 sleep 15
 
-cat > "${WRITER_MANIFEST}" <<'YAML'
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: longhorn-persistence-test
-  namespace: testing
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: longhorn
-  resources:
-    requests:
-      storage: 1Gi
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: longhorn-persistence-writer
-  namespace: testing
-spec:
-  restartPolicy: Never
-  containers:
-    - name: writer
-      image: nginx:stable-alpine
-      command:
-        - /bin/sh
-        - -c
-        - |
-          echo "longhorn-persistence-test $(date -Iseconds)" > /data/test.txt
-          sync
-          cat /data/test.txt
-          sleep 3600
-      volumeMounts:
-        - name: data
-          mountPath: /data
-  volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: longhorn-persistence-test
-YAML
+log "--- apply pvc manifest ---"
+run kubectl apply -f "${PVC_MANIFEST}"
 
 log "--- apply writer manifest ---"
 run kubectl apply -f "${WRITER_MANIFEST}"
@@ -79,13 +42,9 @@ run kubectl -n testing wait pod/longhorn-persistence-writer --for=condition=Read
 WRITER_NODE="$(kubectl -n testing get pod longhorn-persistence-writer -o jsonpath='{.spec.nodeName}')"
 log "--- writer node: ${WRITER_NODE} ---"
 
-log "--- wait for data file ---"
-for i in $(seq 1 30); do
-  if kubectl -n testing exec longhorn-persistence-writer -- test -f /data/test.txt 2>/dev/null; then
-    break
-  fi
-  sleep 1
-done
+log "--- write data in PVC ---"
+DATA_LINE="longhorn-persistence-test $(date -Iseconds)"
+run kubectl -n testing exec longhorn-persistence-writer -- /bin/sh -c "printf '%s\n' \"${DATA_LINE}\" > /data/test.txt && sync"
 
 log "--- initial data written in PVC ---"
 INITIAL_DATA="$(kubectl -n testing exec longhorn-persistence-writer -- cat /data/test.txt)"
@@ -101,35 +60,11 @@ log "--- delete writer pod ---"
 run kubectl -n testing delete pod longhorn-persistence-writer
 kubectl -n testing wait pod/longhorn-persistence-writer --for=delete --timeout=120s 2>/dev/null || true
 
-cat > "${READER_MANIFEST}" <<YAML
-apiVersion: v1
-kind: Pod
-metadata:
-  name: longhorn-persistence-reader
-  namespace: testing
-spec:
-  nodeName: ${WRITER_NODE}
-  restartPolicy: Never
-  containers:
-    - name: reader
-      image: nginx:stable-alpine
-      command:
-        - /bin/sh
-        - -c
-        - |
-          cat /data/test.txt
-          sleep 3600
-      volumeMounts:
-        - name: data
-          mountPath: /data
-  volumes:
-    - name: data
-      persistentVolumeClaim:
-        claimName: longhorn-persistence-test
-YAML
-
 log "--- apply reader manifest on same node ---"
-run kubectl apply -f "${READER_MANIFEST}"
+TMP_READER_MANIFEST="$(mktemp)"
+sed "s/^  nodeName:.*/  nodeName: ${WRITER_NODE}/" "${READER_MANIFEST}" > "${TMP_READER_MANIFEST}"
+run kubectl apply -f "${TMP_READER_MANIFEST}"
+rm -f "${TMP_READER_MANIFEST}"
 
 log "--- wait reader pod ready ---"
 run kubectl -n testing wait pod/longhorn-persistence-reader --for=condition=Ready --timeout=240s

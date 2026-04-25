@@ -54,7 +54,6 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 >
 > - Prometheus + Grafana
 > - Network Policies con Calico
-> - Pruebas adicionales de alta disponibilidad orientadas a defensa
 
 ## Documentación
 
@@ -69,6 +68,7 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 | [07 — Balanceador de carga privado](docs/07_balanceador_tailscale.md) | Instalación y despliegue del sistema de balanceo de carga privado con Tailscale      |
 | [08 — Almacenamiento persistente con Longhorn](docs/08_longhorn.md)   | Instalación, configuración y verificación del sistema de almacenamiento persistente   |
 | [09 — WordPress + MariaDB con Helm](docs/09_wordpress_mariadb_helm.md) | Despliegue funcional de WordPress + MariaDB con Helm, Longhorn y Tailscale           |
+| [10 — Pruebas de evaluación entrega 5](docs/10_pruebas_entrega5.md)   | Índice de evidencias, scripts y resultados de la fase de pruebas                     |
 
 ## Estructura del repositorio
 
@@ -84,7 +84,11 @@ pim_infra_multinodo/
 │   ├── 06_guia_paso_a_paso.md
 │   ├── 07_balanceador_tailscale.md
 │   ├── 08_longhorn.md
-│   └── 09_wordpress_mariadb_helm.md
+│   ├── 09_wordpress_mariadb_helm.md
+│   └── 10_pruebas_entrega5.md
+├── evidencias/
+│   ├── scripts/
+│   └── testing/
 ├── kubespray/
 │   └── inventory/
 │       └── lab/
@@ -99,6 +103,7 @@ pim_infra_multinodo/
 ├── manifests/
 │   ├── longhorn/
 │   ├── tailscale/
+│   ├── testing/
 │   └── wordpress_mariadb/
 ├── logs/                              ← Logs de despliegue (excluidos de git)
 └── .gitignore
@@ -121,13 +126,14 @@ Kubespray se clona como repositorio independiente (`~/kubespray`) y no se modifi
 - [x] Publicación privada de interfaces internas mediante `Service` `LoadBalancer`
 - [x] WordPress + MariaDB desplegado mediante Helm, Longhorn y Tailscale
 - [x] Documentación técnica del despliegue base, del balanceador, del almacenamiento persistente y del servicio WordPress
+- [x] Fase de pruebas de evaluación documentada con evidencias reproducibles
 
 ## Próximos pasos
 
 - [ ] Prometheus + Grafana
 - [ ] Network Policies con Calico
 - [ ] Integración de más servicios reales sobre el balanceador privado
-- [ ] Preparación de la defensa final y pruebas demostrativas
+- [ ] Preparación de la defensa final
 
 ## Inicio rápido
 
