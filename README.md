@@ -52,7 +52,6 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 
 > Pendiente de implementación o cierre funcional:
 >
-> - Publicación estable de aplicaciones reales (WordPress + MariaDB)
 > - Prometheus + Grafana
 > - Network Policies con Calico
 > - Pruebas adicionales de alta disponibilidad orientadas a defensa
@@ -69,6 +68,7 @@ El proyecto se define como una plataforma de hosting multinodo basada en **Kuber
 | [06 — Guía paso a paso](docs/06_guia_paso_a_paso.md)                  | Checklist completa para reproducir el despliegue desde cero                          |
 | [07 — Balanceador de carga privado](docs/07_balanceador_tailscale.md) | Instalación y despliegue del sistema de balanceo de carga privado con Tailscale      |
 | [08 — Almacenamiento persistente con Longhorn](docs/08_longhorn.md)   | Instalación, configuración y verificación del sistema de almacenamiento persistente   |
+| [09 — WordPress + MariaDB con Helm](docs/09_wordpress_mariadb_helm.md) | Despliegue funcional de WordPress + MariaDB con Helm, Longhorn y Tailscale           |
 
 ## Estructura del repositorio
 
@@ -83,7 +83,8 @@ pim_infra_multinodo/
 │   ├── 05_ficha_tecnica_red.md
 │   ├── 06_guia_paso_a_paso.md
 │   ├── 07_balanceador_tailscale.md
-│   └── 08_longhorn.md
+│   ├── 08_longhorn.md
+│   └── 09_wordpress_mariadb_helm.md
 ├── kubespray/
 │   └── inventory/
 │       └── lab/
@@ -118,11 +119,11 @@ Kubespray se clona como repositorio independiente (`~/kubespray`) y no se modifi
 - [x] Sistema de balanceo de entrada privado implantado con Tailscale Operator
 - [x] Capa de entrada redundante mediante ProxyGroup
 - [x] Publicación privada de interfaces internas mediante `Service` `LoadBalancer`
-- [x] Documentación técnica del despliegue base, del balanceador y del almacenamiento persistente
+- [x] WordPress + MariaDB desplegado mediante Helm, Longhorn y Tailscale
+- [x] Documentación técnica del despliegue base, del balanceador, del almacenamiento persistente y del servicio WordPress
 
 ## Próximos pasos
 
-- [ ] Cierre funcional del despliegue de WordPress + MariaDB
 - [ ] Prometheus + Grafana
 - [ ] Network Policies con Calico
 - [ ] Integración de más servicios reales sobre el balanceador privado
