@@ -423,6 +423,11 @@ kubectl get secret --namespace wordpress wp-wordpress \
   -o jsonpath="{.data.wordpress-password}" | base64 -d
 echo
 ```
+Para el acceso de administración del usuario final se ha configurado otro usuario administrador desde el panel de WordPress, siendo el usuario:
+```bash
+Administrador
+```
+La contraseña es proporcionada diréctamente al cliente.
 
 ---
 
