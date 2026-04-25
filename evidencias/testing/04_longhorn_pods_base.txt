@@ -1,0 +1,31 @@
+NAME                                                READY   STATUS    RESTARTS         AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+csi-attacher-7447cbbccd-5tlt2                       1/1     Running   14 (26d ago)     27d    10.233.114.180   debian-nodo1   <none>           <none>
+csi-attacher-7447cbbccd-5zwgq                       1/1     Running   19 (8m32s ago)   27d    10.233.114.182   debian-nodo1   <none>           <none>
+csi-attacher-7447cbbccd-7fm88                       1/1     Running   8 (137m ago)     27d    10.233.114.188   debian-nodo1   <none>           <none>
+csi-provisioner-77c4cd867-86rwj                     1/1     Running   18 (30m ago)     27d    10.233.114.189   debian-nodo1   <none>           <none>
+csi-provisioner-77c4cd867-r2ddx                     1/1     Running   16 (8m31s ago)   27d    10.233.114.187   debian-nodo1   <none>           <none>
+csi-provisioner-77c4cd867-wdlrr                     1/1     Running   20 (8m19s ago)   27d    10.233.114.169   debian-nodo1   <none>           <none>
+csi-resizer-6487c86f56-fcfrg                        1/1     Running   19 (8m23s ago)   27d    10.233.114.157   debian-nodo1   <none>           <none>
+csi-resizer-6487c86f56-sdwrn                        1/1     Running   8 (26d ago)      27d    10.233.114.191   debian-nodo1   <none>           <none>
+csi-resizer-6487c86f56-wcrcl                        1/1     Running   13 (137m ago)    27d    10.233.114.178   debian-nodo1   <none>           <none>
+csi-snapshotter-7fc94c498b-944d4                    1/1     Running   29 (26m ago)     27d    10.233.114.173   debian-nodo1   <none>           <none>
+csi-snapshotter-7fc94c498b-rsnx4                    1/1     Running   14 (8m32s ago)   27d    10.233.114.175   debian-nodo1   <none>           <none>
+csi-snapshotter-7fc94c498b-xfl4l                    1/1     Running   21 (137m ago)    27d    10.233.114.184   debian-nodo1   <none>           <none>
+engine-image-ei-04c05bf8-fdzpq                      1/1     Running   3 (137m ago)     28d    10.233.114.176   debian-nodo1   <none>           <none>
+engine-image-ei-04c05bf8-gw7j7                      1/1     Running   3 (26d ago)      28d    10.233.66.131    debian-nodo2   <none>           <none>
+engine-image-ei-04c05bf8-nwgsz                      1/1     Running   7 (32m ago)      28d    10.233.110.59    debian-nodo4   <none>           <none>
+engine-image-ei-04c05bf8-rclfj                      1/1     Running   3 (26d ago)      28d    10.233.117.182   debian-nodo3   <none>           <none>
+instance-manager-17d9b58ad515ab09980a80761207f75e   1/1     Running   0                135m   10.233.114.181   debian-nodo1   <none>           <none>
+instance-manager-33a87cabb68193d83e36161e0b661edd   1/1     Running   0                136m   10.233.117.185   debian-nodo3   <none>           <none>
+instance-manager-d7d4f25201a4066c26f2a0f8e8887384   1/1     Running   0                135m   10.233.66.137    debian-nodo2   <none>           <none>
+longhorn-csi-plugin-4n6xp                           3/3     Running   35 (28m ago)     27d    10.233.110.57    debian-nodo4   <none>           <none>
+longhorn-csi-plugin-4tbhk                           3/3     Running   28 (135m ago)    28d    10.233.117.183   debian-nodo3   <none>           <none>
+longhorn-csi-plugin-t99xt                           3/3     Running   31 (136m ago)    28d    10.233.66.134    debian-nodo2   <none>           <none>
+longhorn-csi-plugin-vp5h7                           3/3     Running   42 (135m ago)    28d    10.233.114.158   debian-nodo1   <none>           <none>
+longhorn-driver-deployer-56669b8df8-vmdqz           1/1     Running   19 (122m ago)    27d    10.233.114.129   debian-nodo1   <none>           <none>
+longhorn-manager-59dzn                              2/2     Running   6 (26d ago)      28d    10.233.117.184   debian-nodo3   <none>           <none>
+longhorn-manager-dj9wg                              2/2     Running   6 (137m ago)     28d    10.233.114.190   debian-nodo1   <none>           <none>
+longhorn-manager-ghd7g                              2/2     Running   6 (26d ago)      28d    10.233.66.133    debian-nodo2   <none>           <none>
+longhorn-manager-mf5sl                              2/2     Running   20 (29m ago)     28d    10.233.110.58    debian-nodo4   <none>           <none>
+longhorn-ui-676f76b857-2tsr2                        1/1     Running   2 (136m ago)     27d    10.233.114.171   debian-nodo1   <none>           <none>
+longhorn-ui-676f76b857-gcjzj                        1/1     Running   1 (137m ago)     27d    10.233.114.174   debian-nodo1   <none>           <none>

@@ -1,0 +1,8 @@
+NAME           STATUS                        ROLES           AGE   VERSION   INTERNAL-IP      EXTERNAL-IP   OS-IMAGE                       KERNEL-VERSION        CONTAINER-RUNTIME
+debian-nodo1   Ready                         <none>          41d   v1.35.1   100.126.156.35   <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo2   Ready                         <none>          41d   v1.35.1   100.78.239.126   <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo3   Ready                         <none>          41d   v1.35.1   100.115.184.93   <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo4   NotReady,SchedulingDisabled   <none>          41d   v1.35.1   100.87.128.22    <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo5   Ready                         control-plane   41d   v1.35.1   100.108.88.7     <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo6   Ready                         control-plane   41d   v1.35.1   100.111.213.98   <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1
+debian-nodo7   Ready                         control-plane   41d   v1.35.1   100.126.143.93   <none>        Debian GNU/Linux 13 (trixie)   6.12.73+deb13-amd64   containerd://2.2.1

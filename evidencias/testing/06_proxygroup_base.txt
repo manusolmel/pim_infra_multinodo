@@ -1,0 +1,2 @@
+NAME              STATUS            URL   TYPE      AGE
+ingress-proxies   ProxyGroupReady         ingress   27d

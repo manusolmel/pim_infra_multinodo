@@ -1,0 +1,5 @@
+NAME                        READY   STATUS    RESTARTS      AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+ingress-proxies-0           1/1     Running   2 (24m ago)   122m   10.233.66.138    debian-nodo2   <none>           <none>
+ingress-proxies-1           1/1     Running   0             123m   10.233.117.186   debian-nodo3   <none>           <none>
+ingress-proxies-2           1/1     Running   0             62m    10.233.114.186   debian-nodo1   <none>           <none>
+operator-6866b5448f-x9wcr   1/1     Running   1 (26d ago)   27d    10.233.114.130   debian-nodo1   <none>           <none>

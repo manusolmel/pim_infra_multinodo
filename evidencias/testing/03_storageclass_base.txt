@@ -1,0 +1,3 @@
+NAME                 PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+longhorn (default)   driver.longhorn.io   Delete          Immediate           true                   30d
+longhorn-static      driver.longhorn.io   Delete          Immediate           true                   15m

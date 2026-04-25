@@ -1,0 +1,78 @@
+NAMESPACE         NAME                                                READY   STATUS    RESTARTS         AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+kube-system       calico-kube-controllers-5bc89bc76-j9p8q             1/1     Running   2 (95m ago)      27d    10.233.84.132    debian-nodo6   <none>           <none>
+kube-system       calico-node-7sdmz                                   1/1     Running   13 (32m ago)     41d    100.87.128.22    debian-nodo4   <none>           <none>
+kube-system       calico-node-dh6zj                                   1/1     Running   8 (26d ago)      41d    100.108.88.7     debian-nodo5   <none>           <none>
+kube-system       calico-node-j2s47                                   1/1     Running   8 (137m ago)     41d    100.126.156.35   debian-nodo1   <none>           <none>
+kube-system       calico-node-lq5gk                                   1/1     Running   5 (26d ago)      30d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       calico-node-mb4ws                                   1/1     Running   6 (26d ago)      41d    100.78.239.126   debian-nodo2   <none>           <none>
+kube-system       calico-node-pnvmf                                   1/1     Running   6 (26d ago)      41d    100.115.184.93   debian-nodo3   <none>           <none>
+kube-system       calico-node-tg9lm                                   1/1     Running   1 (26d ago)      27d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       coredns-58cc5d8ddf-hp9v7                            1/1     Running   3 (26d ago)      28d    10.233.101.4     debian-nodo5   <none>           <none>
+kube-system       coredns-58cc5d8ddf-rs7w2                            1/1     Running   1 (26d ago)      27d    10.233.115.130   debian-nodo7   <none>           <none>
+kube-system       dns-autoscaler-5654b864c-zrv6w                      1/1     Running   2 (26d ago)      28d    10.233.84.133    debian-nodo6   <none>           <none>
+kube-system       kube-apiserver-debian-nodo5                         1/1     Running   19 (137m ago)    41d    100.108.88.7     debian-nodo5   <none>           <none>
+kube-system       kube-apiserver-debian-nodo6                         1/1     Running   12 (137m ago)    41d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       kube-apiserver-debian-nodo7                         1/1     Running   11 (137m ago)    41d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       kube-controller-manager-debian-nodo5                1/1     Running   38 (20m ago)     41d    100.108.88.7     debian-nodo5   <none>           <none>
+kube-system       kube-controller-manager-debian-nodo6                1/1     Running   46 (26m ago)     41d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       kube-controller-manager-debian-nodo7                1/1     Running   42 (8m25s ago)   41d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       kube-proxy-4ldpd                                    1/1     Running   4 (26d ago)      29d    100.78.239.126   debian-nodo2   <none>           <none>
+kube-system       kube-proxy-jt5pz                                    1/1     Running   3 (26d ago)      29d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       kube-proxy-l4gb5                                    1/1     Running   4 (26d ago)      29d    100.115.184.93   debian-nodo3   <none>           <none>
+kube-system       kube-proxy-pwhqx                                    1/1     Running   7 (32m ago)      29d    100.87.128.22    debian-nodo4   <none>           <none>
+kube-system       kube-proxy-t84tl                                    1/1     Running   4 (26d ago)      29d    100.108.88.7     debian-nodo5   <none>           <none>
+kube-system       kube-proxy-tzq2l                                    1/1     Running   3 (26d ago)      29d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       kube-proxy-vc5k4                                    1/1     Running   3 (137m ago)     29d    100.126.156.35   debian-nodo1   <none>           <none>
+kube-system       kube-scheduler-debian-nodo5                         1/1     Running   40 (96m ago)     41d    100.108.88.7     debian-nodo5   <none>           <none>
+kube-system       kube-scheduler-debian-nodo6                         1/1     Running   36 (20m ago)     41d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       kube-scheduler-debian-nodo7                         1/1     Running   44 (30m ago)     41d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       nginx-proxy-debian-nodo1                            1/1     Running   7 (137m ago)     41d    100.126.156.35   debian-nodo1   <none>           <none>
+kube-system       nginx-proxy-debian-nodo2                            1/1     Running   7 (26d ago)      41d    100.78.239.126   debian-nodo2   <none>           <none>
+kube-system       nginx-proxy-debian-nodo3                            1/1     Running   7 (26d ago)      41d    100.115.184.93   debian-nodo3   <none>           <none>
+kube-system       nginx-proxy-debian-nodo4                            1/1     Running   12 (32m ago)     41d    100.87.128.22    debian-nodo4   <none>           <none>
+kube-system       nodelocaldns-42z6w                                  1/1     Running   7 (137m ago)     41d    100.126.156.35   debian-nodo1   <none>           <none>
+kube-system       nodelocaldns-6gwxn                                  1/1     Running   6 (26d ago)      41d    100.78.239.126   debian-nodo2   <none>           <none>
+kube-system       nodelocaldns-6xwjq                                  1/1     Running   3 (26d ago)      29d    100.126.143.93   debian-nodo7   <none>           <none>
+kube-system       nodelocaldns-7m7wk                                  1/1     Running   7 (26d ago)      41d    100.111.213.98   debian-nodo6   <none>           <none>
+kube-system       nodelocaldns-855mg                                  1/1     Running   6 (26d ago)      41d    100.115.184.93   debian-nodo3   <none>           <none>
+kube-system       nodelocaldns-mn9ln                                  1/1     Running   9 (32m ago)      41d    100.87.128.22    debian-nodo4   <none>           <none>
+kube-system       nodelocaldns-zswq8                                  1/1     Running   6 (26d ago)      30d    100.108.88.7     debian-nodo5   <none>           <none>
+longhorn-system   csi-attacher-7447cbbccd-5tlt2                       1/1     Running   14 (26d ago)     27d    10.233.114.180   debian-nodo1   <none>           <none>
+longhorn-system   csi-attacher-7447cbbccd-5zwgq                       1/1     Running   19 (8m32s ago)   27d    10.233.114.182   debian-nodo1   <none>           <none>
+longhorn-system   csi-attacher-7447cbbccd-7fm88                       1/1     Running   8 (137m ago)     27d    10.233.114.188   debian-nodo1   <none>           <none>
+longhorn-system   csi-provisioner-77c4cd867-86rwj                     1/1     Running   18 (30m ago)     27d    10.233.114.189   debian-nodo1   <none>           <none>
+longhorn-system   csi-provisioner-77c4cd867-r2ddx                     1/1     Running   16 (8m31s ago)   27d    10.233.114.187   debian-nodo1   <none>           <none>
+longhorn-system   csi-provisioner-77c4cd867-wdlrr                     1/1     Running   20 (8m19s ago)   27d    10.233.114.169   debian-nodo1   <none>           <none>
+longhorn-system   csi-resizer-6487c86f56-fcfrg                        1/1     Running   19 (8m23s ago)   27d    10.233.114.157   debian-nodo1   <none>           <none>
+longhorn-system   csi-resizer-6487c86f56-sdwrn                        1/1     Running   8 (26d ago)      27d    10.233.114.191   debian-nodo1   <none>           <none>
+longhorn-system   csi-resizer-6487c86f56-wcrcl                        1/1     Running   13 (137m ago)    27d    10.233.114.178   debian-nodo1   <none>           <none>
+longhorn-system   csi-snapshotter-7fc94c498b-944d4                    1/1     Running   29 (26m ago)     27d    10.233.114.173   debian-nodo1   <none>           <none>
+longhorn-system   csi-snapshotter-7fc94c498b-rsnx4                    1/1     Running   14 (8m32s ago)   27d    10.233.114.175   debian-nodo1   <none>           <none>
+longhorn-system   csi-snapshotter-7fc94c498b-xfl4l                    1/1     Running   21 (137m ago)    27d    10.233.114.184   debian-nodo1   <none>           <none>
+longhorn-system   engine-image-ei-04c05bf8-fdzpq                      1/1     Running   3 (137m ago)     28d    10.233.114.176   debian-nodo1   <none>           <none>
+longhorn-system   engine-image-ei-04c05bf8-gw7j7                      1/1     Running   3 (26d ago)      28d    10.233.66.131    debian-nodo2   <none>           <none>
+longhorn-system   engine-image-ei-04c05bf8-nwgsz                      1/1     Running   7 (32m ago)      28d    10.233.110.59    debian-nodo4   <none>           <none>
+longhorn-system   engine-image-ei-04c05bf8-rclfj                      1/1     Running   3 (26d ago)      28d    10.233.117.182   debian-nodo3   <none>           <none>
+longhorn-system   instance-manager-17d9b58ad515ab09980a80761207f75e   1/1     Running   0                135m   10.233.114.181   debian-nodo1   <none>           <none>
+longhorn-system   instance-manager-33a87cabb68193d83e36161e0b661edd   1/1     Running   0                136m   10.233.117.185   debian-nodo3   <none>           <none>
+longhorn-system   instance-manager-d7d4f25201a4066c26f2a0f8e8887384   1/1     Running   0                135m   10.233.66.137    debian-nodo2   <none>           <none>
+longhorn-system   longhorn-csi-plugin-4n6xp                           3/3     Running   35 (28m ago)     27d    10.233.110.57    debian-nodo4   <none>           <none>
+longhorn-system   longhorn-csi-plugin-4tbhk                           3/3     Running   28 (135m ago)    28d    10.233.117.183   debian-nodo3   <none>           <none>
+longhorn-system   longhorn-csi-plugin-t99xt                           3/3     Running   31 (136m ago)    28d    10.233.66.134    debian-nodo2   <none>           <none>
+longhorn-system   longhorn-csi-plugin-vp5h7                           3/3     Running   42 (135m ago)    28d    10.233.114.158   debian-nodo1   <none>           <none>
+longhorn-system   longhorn-driver-deployer-56669b8df8-vmdqz           1/1     Running   19 (122m ago)    27d    10.233.114.129   debian-nodo1   <none>           <none>
+longhorn-system   longhorn-manager-59dzn                              2/2     Running   6 (26d ago)      28d    10.233.117.184   debian-nodo3   <none>           <none>
+longhorn-system   longhorn-manager-dj9wg                              2/2     Running   6 (137m ago)     28d    10.233.114.190   debian-nodo1   <none>           <none>
+longhorn-system   longhorn-manager-ghd7g                              2/2     Running   6 (26d ago)      28d    10.233.66.133    debian-nodo2   <none>           <none>
+longhorn-system   longhorn-manager-mf5sl                              2/2     Running   20 (29m ago)     28d    10.233.110.58    debian-nodo4   <none>           <none>
+longhorn-system   longhorn-ui-676f76b857-2tsr2                        1/1     Running   2 (136m ago)     27d    10.233.114.171   debian-nodo1   <none>           <none>
+longhorn-system   longhorn-ui-676f76b857-gcjzj                        1/1     Running   1 (137m ago)     27d    10.233.114.174   debian-nodo1   <none>           <none>
+tailscale         ingress-proxies-0                                   1/1     Running   2 (24m ago)      122m   10.233.66.138    debian-nodo2   <none>           <none>
+tailscale         ingress-proxies-1                                   1/1     Running   0                123m   10.233.117.186   debian-nodo3   <none>           <none>
+tailscale         ingress-proxies-2                                   1/1     Running   0                62m    10.233.114.186   debian-nodo1   <none>           <none>
+tailscale         operator-6866b5448f-x9wcr                           1/1     Running   1 (26d ago)      27d    10.233.114.130   debian-nodo1   <none>           <none>
+testing           web-ha-69c5dcc979-k85d2                             1/1     Running   0                25m    10.233.114.133   debian-nodo1   <none>           <none>
+testing           web-ha-69c5dcc979-n4qd7                             1/1     Running   0                25m    10.233.117.189   debian-nodo3   <none>           <none>
+testing           web-ha-69c5dcc979-wzxsc                             1/1     Running   0                25m    10.233.66.132    debian-nodo2   <none>           <none>
+wordpress         wp-mariadb-0                                        1/1     Running   0                50m    10.233.66.136    debian-nodo2   <none>           <none>
+wordpress         wp-wordpress-68c8dc597c-q2jxv                       1/1     Running   1 (46m ago)      50m    10.233.117.188   debian-nodo3   <none>           <none>
