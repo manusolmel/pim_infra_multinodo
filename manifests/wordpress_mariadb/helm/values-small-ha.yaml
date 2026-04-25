@@ -1,0 +1,14 @@
+global:
+  defaultStorageClass: longhorn
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+  size: 2Gi
+
+mariadb:
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 2Gi

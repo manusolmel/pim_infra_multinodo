@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "annotations": {
+      "tailscale.com/proxy-group": "ingress-proxies",
+      "tailscale.com/hostname": "wordpress"
+    }
+  },
+  "spec": {
+    "type": "LoadBalancer",
+    "loadBalancerClass": "tailscale"
+  }
+}

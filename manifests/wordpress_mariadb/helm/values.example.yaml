@@ -1,0 +1,39 @@
+global:
+  defaultStorageClass: longhorn
+
+wordpressUsername: admin
+wordpressPassword: "CHANGE_ME"
+wordpressEmail: admin@example.local
+wordpressBlogName: "WordPress Lab"
+wordpressScheme: http
+wordpressHost: wordpress.mastodon-dominant.ts.net
+
+allowEmptyPassword: false
+
+service:
+  type: ClusterIP
+  ports:
+    http: 80
+    https: 443
+
+ingress:
+  enabled: false
+
+persistence:
+  enabled: true
+  storageClass: longhorn
+  size: 2Gi
+
+mariadb:
+  enabled: true
+  architecture: standalone
+  auth:
+    rootPassword: "CHANGE_ME"
+    database: bitnami_wordpress
+    username: bn_wordpress
+    password: "CHANGE_ME"
+  primary:
+    persistence:
+      enabled: true
+      storageClass: longhorn
+      size: 2Gi
