@@ -1,0 +1,64 @@
+---- request 1 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 2 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 3 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 4 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 5 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 6 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 7 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 8 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 9 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 10 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 11 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 12 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 13 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 14 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 15 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 16 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 17 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+---- request 18 ----
+web-ha pod: web-ha-69c5dcc979-n4qd7
+node: debian-nodo3
+---- request 19 ----
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+---- request 20 ----
+web-ha pod: web-ha-69c5dcc979-k85d2
+node: debian-nodo1
+NAME                      READY   STATUS    RESTARTS   AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-k85d2   1/1     Running   0          117m   10.233.114.133   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          117m   10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          117m   10.233.66.132    debian-nodo2   <none>           <none>

@@ -1,0 +1,19 @@
+NAME     READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                SELECTOR
+web-ha   3/3     3            3           122m   nginx        nginx:stable-alpine   app=web-ha
+--- pods antes ---
+NAME                      READY   STATUS    RESTARTS   AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-k85d2   1/1     Running   0          121m   10.233.114.133   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          121m   10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          121m   10.233.66.132    debian-nodo2   <none>           <none>
+--- pod eliminado: web-ha-69c5dcc979-k85d2 ---
+pod "web-ha-69c5dcc979-k85d2" deleted from testing namespace
+--- rollout status ---
+deployment "web-ha" successfully rolled out
+--- pods despues ---
+NAME                      READY   STATUS    RESTARTS   AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-jlfh9   1/1     Running   0          44s    10.233.114.140   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          122m   10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          122m   10.233.66.132    debian-nodo2   <none>           <none>
+--- deployment final ---
+NAME     READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                SELECTOR
+web-ha   3/3     3            3           123m   nginx        nginx:stable-alpine   app=web-ha

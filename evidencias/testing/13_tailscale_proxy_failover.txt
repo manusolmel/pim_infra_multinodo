@@ -1,0 +1,62 @@
+--- estado inicial tailscale ---
+NAME                        READY   STATUS    RESTARTS       AGE     IP               NODE           NOMINATED NODE   READINESS GATES
+ingress-proxies-0           1/1     Running   2 (137m ago)   3h56m   10.233.66.138    debian-nodo2   <none>           <none>
+ingress-proxies-1           1/1     Running   0              3h56m   10.233.117.186   debian-nodo3   <none>           <none>
+ingress-proxies-2           1/1     Running   0              176m    10.233.114.186   debian-nodo1   <none>           <none>
+operator-6866b5448f-x9wcr   1/1     Running   1 (26d ago)    27d     10.233.114.130   debian-nodo1   <none>           <none>
+NAME              STATUS            URL   TYPE      AGE
+ingress-proxies   ProxyGroupReady         ingress   27d
+--- estado inicial web-ha ---
+NAME     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE    SELECTOR
+web-ha   LoadBalancer   10.233.19.94   100.84.251.148   80:31091/TCP   139m   app=web-ha
+NAME                      READY   STATUS    RESTARTS   AGE     IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-7k94p   1/1     Running   0          9m11s   10.233.114.135   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          139m    10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          139m    10.233.66.132    debian-nodo2   <none>           <none>
+--- inicio bucle HTTP contra FQDN ---
+request 01: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.282617 
+request 02: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.191494 
+request 03: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.104171 
+request 04: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.164287 
+request 05: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.100800 
+--- proxy eliminado durante el bucle: ingress-proxies-0 ---
+pod "ingress-proxies-0" deleted from tailscale namespace
+request 06: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.165671 
+request 07: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.097536 
+request 08: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.182629 
+request 09: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.102610 
+request 10: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.218611 
+request 11: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.104316 
+request 12: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.192178 
+request 13: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.104664 
+request 14: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.192514 
+request 15: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.182194 
+request 16: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.540750 
+request 17: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.098326 
+request 18: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.208154 
+request 19: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.098431 
+request 20: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=1.194963 
+request 21: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.093392 
+request 22: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.196245 
+request 23: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.094588 
+request 24: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=2.837020 
+request 25: curl: (28) Connection timed out after 3004 milliseconds  HTTP_CODE=000 TIME=3.004045 
+request 26: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.101436 
+request 27: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.154190 
+request 28: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=2.194266 
+request 29: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.097136 
+request 30: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.830974 
+--- esperar recuperacion proxygroup ---
+proxygroup.tailscale.com/ingress-proxies condition met
+--- estado final tailscale ---
+NAME                        READY   STATUS    RESTARTS      AGE     IP               NODE           NOMINATED NODE   READINESS GATES
+ingress-proxies-0           1/1     Running   0             88s     10.233.66.135    debian-nodo2   <none>           <none>
+ingress-proxies-1           1/1     Running   0             3h58m   10.233.117.186   debian-nodo3   <none>           <none>
+ingress-proxies-2           1/1     Running   0             178m    10.233.114.186   debian-nodo1   <none>           <none>
+operator-6866b5448f-x9wcr   1/1     Running   1 (26d ago)   27d     10.233.114.130   debian-nodo1   <none>           <none>
+NAME              STATUS            URL   TYPE      AGE
+ingress-proxies   ProxyGroupReady         ingress   27d
+--- comprobacion final web-ha ---
+web-ha pod: web-ha-69c5dcc979-wzxsc
+node: debian-nodo2
+ HTTP_CODE=200 TIME=0.191112

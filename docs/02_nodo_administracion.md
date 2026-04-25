@@ -119,7 +119,7 @@ ansible -i ~/pim_infra_multinodo/kubespray/inventory/lab/inventory.ini all \
 
 ### 6.2 Sudo sin contraseña (laboratorio)
 
-Kubespray necesita ejecutar muchas tareas como root. Para evitar bloqueos:
+Kubespray necesita ejecutar muchas operaciones como root. Para evitar bloqueos:
 
 ```bash
 ansible -i ~/pim_infra_multinodo/kubespray/inventory/lab/inventory.ini all \

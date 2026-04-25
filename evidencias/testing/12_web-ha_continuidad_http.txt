@@ -1,0 +1,49 @@
+--- estado inicial ---
+NAME     READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                SELECTOR
+web-ha   3/3     3            3           130m   nginx        nginx:stable-alpine   app=web-ha
+NAME                      READY   STATUS    RESTARTS   AGE     IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-b27hp   1/1     Running   0          2m55s   10.233.114.131   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          130m    10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          130m    10.233.66.132    debian-nodo2   <none>           <none>
+--- inicio bucle HTTP con status code ---
+request 01: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.472650 
+request 02: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.304827 
+request 03: web-ha pod: web-ha-69c5dcc979-b27hp node: debian-nodo1  HTTP_CODE=200 TIME=0.130389 
+request 04: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.476083 
+request 05: --- pod eliminado durante el bucle: web-ha-69c5dcc979-b27hp ---
+web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.236644 
+pod "web-ha-69c5dcc979-b27hp" deleted from testing namespace
+request 06: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.303908 
+request 07: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.201481 
+request 08: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.304502 
+request 09: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.527989 
+request 10: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.489859 
+request 11: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.455831 
+request 12: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.328052 
+request 13: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.466591 
+request 14: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.367686 
+request 15: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.224011 
+request 16: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.291955 
+request 17: curl: (28) Connection timed out after 3001 milliseconds  HTTP_CODE=000 TIME=3.001181 
+request 18: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.093588 
+request 19: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.156599 
+request 20: curl: (28) Connection timed out after 3002 milliseconds  HTTP_CODE=000 TIME=3.002303 
+request 21: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.093937 
+request 22: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=0.153582 
+request 23: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=2.328018 
+request 24: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.096664 
+request 25: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=1.247484 
+request 26: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.170045 
+request 27: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.095353 
+request 28: web-ha pod: web-ha-69c5dcc979-wzxsc node: debian-nodo2  HTTP_CODE=200 TIME=1.275413 
+request 29: web-ha pod: web-ha-69c5dcc979-n4qd7 node: debian-nodo3  HTTP_CODE=200 TIME=0.168272 
+request 30: web-ha pod: web-ha-69c5dcc979-7k94p node: debian-nodo1  HTTP_CODE=200 TIME=0.095219 
+--- rollout final ---
+deployment "web-ha" successfully rolled out
+--- estado final ---
+NAME                      READY   STATUS    RESTARTS   AGE    IP               NODE           NOMINATED NODE   READINESS GATES
+web-ha-69c5dcc979-7k94p   1/1     Running   0          43s    10.233.114.135   debian-nodo1   <none>           <none>
+web-ha-69c5dcc979-n4qd7   1/1     Running   0          130m   10.233.117.189   debian-nodo3   <none>           <none>
+web-ha-69c5dcc979-wzxsc   1/1     Running   0          130m   10.233.66.132    debian-nodo2   <none>           <none>
+NAME     READY   UP-TO-DATE   AVAILABLE   AGE    CONTAINERS   IMAGES                SELECTOR
+web-ha   3/3     3            3           131m   nginx        nginx:stable-alpine   app=web-ha

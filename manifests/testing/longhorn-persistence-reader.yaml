@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: longhorn-persistence-reader
+  namespace: testing
+spec:
+  nodeName: debian-nodo3
+  restartPolicy: Never
+  containers:
+    - name: reader
+      image: nginx:stable-alpine
+      command:
+        - /bin/sh
+        - -c
+        - sleep 3600
+      volumeMounts:
+        - name: data
+          mountPath: /data
+  volumes:
+    - name: data
+      persistentVolumeClaim:
+        claimName: longhorn-persistence-test
