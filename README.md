@@ -128,12 +128,10 @@ Kubespray se clona como repositorio independiente (`~/kubespray`) y no se modifi
 - [x] Documentación técnica del despliegue base, del balanceador, del almacenamiento persistente y del servicio WordPress
 - [x] Validación operativa documentada con evidencias reproducibles
 
-## Próximos pasos
+## Mejoras propuestas
 
 - [ ] Prometheus + Grafana
-- [ ] Network Policies con Calico
 - [ ] Integración de más servicios reales sobre el balanceador privado
-- [ ] Cierre operativo del proyecto
 
 ## Inicio rápido
 
